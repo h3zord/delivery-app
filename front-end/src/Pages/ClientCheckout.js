@@ -50,8 +50,10 @@ function ClientCheckout() {
   const endOrder = async () => {
     try {
       validateToken();
+
       const { email } = await getUserInfo();
       const { id } = await requestUser('/user/email', { email });
+
       const body = {
         productIds: cart,
         sellerId,
@@ -60,8 +62,11 @@ function ClientCheckout() {
         deliveryAddress: address,
         deliveryNumber: residenceNumber,
       };
+
       const { saleId } = await createNewSale('/sale/register-order', body);
+
       saveCart([]);
+
       history.push(`/customer/orders/${saleId}`);
     } catch (err) {
       Redirect('/login');

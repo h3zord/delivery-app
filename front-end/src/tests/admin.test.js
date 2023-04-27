@@ -3,11 +3,19 @@ import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import renderWithRouter from './helpers/renderWithRouter';
 import App from '../App';
+import { requestAdminRegister, requestAllUsers, requestLogin } from '../Services/Request';
+import { loginDataAdmin, newUser, usersList } from './mocks/data';
+
+jest.mock('../Services/Request');
 
 describe('Testing admin page', () => {
+  afterEach(() => jest.clearAllMocks());
   it('Testing if all elements are presents on screen', async () => {
     const { history } = renderWithRouter(<App />);
     history.push('/login');
+
+    requestLogin.mockResolvedValue(loginDataAdmin);
+    requestAllUsers.mockResolvedValue(usersList);
 
     const loginInput = screen.getByText('Login:');
     const passInput = screen.getByText('Senha');
@@ -47,7 +55,9 @@ describe('Testing admin page', () => {
 
     expect(errorMsg).toBeDefined();
 
-    userEvent.type(emailInput, 'teste@teste.com.br');
+    userEvent.type(emailInput, 'teste@teste.com');
+
+    requestAdminRegister.mockResolvedValue(newUser);
 
     userEvent.click(registerButton);
 
@@ -55,6 +65,15 @@ describe('Testing admin page', () => {
 
     expect(deleteButton).toBeDefined();
 
-    userEvent.click(deleteButton[1]);
+    userEvent.click(deleteButton[2]);
+
+    const exitButton = await screen
+      .findByTestId('customer_products__element-navbar-link-logout');
+
+    expect(exitButton).toBeDefined();
+
+    userEvent.click(exitButton);
+
+    expect(history.location.pathname).toEqual('/login');
   });
 });

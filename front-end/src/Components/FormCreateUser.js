@@ -46,6 +46,7 @@ export default function FormCreateUser() {
         data,
         { headers: { Authorization: token } },
       );
+
       handleUserCreated(userCreated);
     } catch (error) {
       setCreateUserError(true);

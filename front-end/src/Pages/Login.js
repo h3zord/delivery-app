@@ -30,6 +30,7 @@ function Login() {
         '/login',
         { email, password },
       );
+      console.log(userInfo);
       setToken(userInfo.token);
 
       saveInfoAndRedirect(userInfo);

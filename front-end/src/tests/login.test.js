@@ -44,6 +44,19 @@ describe('Testing login page', () => {
     expect(errorMsg).toBeDefined();
   });
 
+  it('testing if it is redirected to the registration page', async () => {
+    const { history } = renderWithRouter(<App />);
+    history.push('/login');
+
+    const registerButton = screen.getByRole('button', { name: /ainda não tenho conta/i });
+
+    userEvent.click(registerButton);
+
+    await waitFor(() => {
+      expect(history.location.pathname).toEqual('/register');
+    });
+  });
+
   it('testing if you login as administrator correctly', async () => {
     const { history } = renderWithRouter(<App />);
     history.push('/login');
@@ -129,18 +142,5 @@ describe('Testing login page', () => {
     expect(exitButton).toBeDefined();
 
     userEvent.click(exitButton);
-  });
-
-  it('testing if it is redirected to the registration page', async () => {
-    const { history } = renderWithRouter(<App />);
-    history.push('/login');
-
-    const registerButton = screen.getByRole('button', { name: /ainda não tenho conta/i });
-
-    userEvent.click(registerButton);
-
-    await waitFor(() => {
-      expect(history.location.pathname).toEqual('/register');
-    });
   });
 });

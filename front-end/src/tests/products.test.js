@@ -3,11 +3,38 @@ import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import renderWithRouter from './helpers/renderWithRouter';
 import App from '../App';
+import { createNewSale,
+  requestLogin,
+  requestProducts,
+  requestSellers } from '../Services/Request';
+import { loginDataCustomer, productsList, sellersList } from './mocks/data';
+
+jest.mock('../Services/Request');
 
 describe('Testing products page', () => {
+  afterEach(() => jest.clearAllMocks());
   it('Testing if all elements are on the screen', async () => {
     const { history } = renderWithRouter(<App />);
-    history.push('/customer/products');
+    history.push('/login');
+
+    requestLogin.mockResolvedValue(loginDataCustomer);
+    requestProducts.mockResolvedValue(productsList);
+
+    const loginInput = screen.getByText('Login:');
+    const passInput = screen.getByText('Senha');
+
+    userEvent.type(loginInput, 'zebirita@email.com');
+    userEvent.type(passInput, '$#zebirita#$');
+
+    const loginButton = screen.getByRole('button', { name: /login/i });
+
+    expect(loginButton).toBeEnabled();
+
+    userEvent.click(loginButton);
+
+    await waitFor(() => {
+      expect(history.location.pathname).toEqual('/customer/products');
+    });
 
     const productButton = screen.getByRole('link', { name: /produtos/i });
     const ordersButton = screen.getByRole('link', { name: /meus pedidos/i });
@@ -38,6 +65,11 @@ describe('Testing products page', () => {
     const { history } = renderWithRouter(<App />);
     history.push('/login');
 
+    requestLogin.mockResolvedValue(loginDataCustomer);
+    requestProducts.mockResolvedValue(productsList);
+    requestSellers.mockResolvedValue(sellersList);
+    createNewSale.mockResolvedValue({ saleId: '1' });
+
     const loginInput = screen.getByText('Login:');
     const passInput = screen.getByText('Senha');
     const loginButton = screen.getByRole('button', { name: /login/i });
@@ -51,10 +83,12 @@ describe('Testing products page', () => {
     const inputQuantity = await screen.findAllByRole('spinbutton');
     const carButton = await screen.findByRole('button', { name: /ver carrinho:/i });
 
+    userEvent.type(inputQuantity[0], '1');
     userEvent.click(sumButton[1]);
     userEvent.click(sumButton[1]);
     userEvent.click(subButton[1]);
-    userEvent.type(inputQuantity[0], '1');
+    userEvent.click(sumButton[2]);
+    userEvent.click(subButton[2]);
     userEvent.click(carButton);
 
     await waitFor(() => {
@@ -77,7 +111,8 @@ describe('Testing products page', () => {
     const infoText = screen.getByText('Detalhes e Endereço para Entrega');
     const sellerName = screen.getByRole('combobox');
     const infoInputs = screen.getAllByRole('textbox');
-    const finishButton = await screen.findByRole('button', { name: /finalizar pedido/i });
+    const finishButton = await screen
+      .findByTestId('customer_checkout__button-submit-order');
 
     expect(clientName).toBeDefined();
     expect(titleText).toBeDefined();
@@ -98,18 +133,19 @@ describe('Testing products page', () => {
     expect(finishButton).toBeDefined();
 
     userEvent.click(removeButton[0]);
+    userEvent.selectOptions(sellerName, '2');
     userEvent.type(infoInputs[0], 'test');
     userEvent.type(infoInputs[1], 'test');
+
     userEvent.click(finishButton);
 
-    await waitFor(() => {
-      expect(history.location.pathname).toEqual('/customer/orders/3');
+    const exitButton = await screen
+      .findByTestId('customer_products__element-navbar-link-logout');
 
-      const exitButton = screen.getByRole('link', { name: /sair/i });
+    expect(exitButton).toBeDefined();
 
-      expect(exitButton).toBeDefined();
+    userEvent.click(exitButton);
 
-      userEvent.click(exitButton);
-    });
+    expect(history.location.pathname).toEqual('/login');
   });
 });

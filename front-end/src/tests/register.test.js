@@ -4,6 +4,7 @@ import userEvent from '@testing-library/user-event';
 import renderWithRouter from './helpers/renderWithRouter';
 import App from '../App';
 import { requestRegister } from '../Services/Request';
+import { newAccount } from './mocks/data';
 
 jest.mock('../Services/Request');
 
@@ -14,13 +15,7 @@ describe('Testing register page', () => {
     const { history } = renderWithRouter(<App />);
     history.push('/register');
 
-    requestRegister.mockResolvedValue({
-      id: 14,
-      email: 'test@test.com',
-      password: '1bbd886460827015e5d605ed44252251',
-      name: 'Lucas Chavarem',
-      role: 'customer',
-    });
+    requestRegister.mockResolvedValue(newAccount);
 
     const nameInput = screen.getByText('Nome');
     const emailInput = screen.getByText('E-mail');
