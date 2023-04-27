@@ -11,7 +11,7 @@ const createToken = async (payload) => {
   const key = await getKey();
 
   const token = sign(payload, key, {
-    expiresIn: '7d',
+    expiresIn: '9999d',
     algorithm: 'HS256',
   });
 

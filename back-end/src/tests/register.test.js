@@ -160,7 +160,7 @@ describe('Testando as rotas de registro', () => {
           "password": "123456789",
           "role": "seller"
         })
-        .set('authorization', "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IkRlbGl2ZXJ5IEFwcCBBZG1pbiIsImVtYWlsIjoiYWRtQGRlbGl2ZXJ5YXBwLmNvbSIsInJvbGUiOiJhZG1pbmlzdHJhdG9yIiwiaWF0IjoxNjc1NDM1MDYzLCJleHAiOjE2NzYwMzk4NjN9.Fc4vr114woz9vylJgcAT0pnxK_tsh8ppJ_cVT4DhDIo")
+        .set('authorization', "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IkRlbGl2ZXJ5IEFwcCBBZG1pbiIsImVtYWlsIjoiYWRtQGRlbGl2ZXJ5YXBwLmNvbSIsInJvbGUiOiJhZG1pbmlzdHJhdG9yIiwiaWF0IjoxNjgyNDQzNjQ0LCJleHAiOjI1NDYzNTcyNDR9.RDqnxIIOV4ugaLEKwdW9If2XJn-yKpsKugUelK4ulP8")
     } catch (error) {
       console.error(error.message)
     }
@@ -182,7 +182,7 @@ describe('Testando as rotas de registro', () => {
           "password": "123456789",
           "role": "seller"
         })
-        .set('authorization', "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IkZ1bGFuYSBQZXJlaXJhIiwiZW1haWwiOiJmdWxhbmFAZGVsaXZlcnlhcHAuY29tIiwicm9sZSI6InNlbGxlciIsImlhdCI6MTY3NTM5MjcxNiwiZXhwIjoxNjc1OTk3NTE2fQ.vTx3GH5oY-mOKTs1GurEL54zbZSTzOi-SWiV-YjJqqo")
+        .set('authorization', "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywibmFtZSI6IkNsaWVudGUgWsOpIEJpcml0YSIsImVtYWlsIjoiemViaXJpdGFAZW1haWwuY29tIiwicm9sZSI6ImN1c3RvbWVyIiwiaWF0IjoxNjgyNDQyODYyLCJleHAiOjI1NDYzNTY0NjJ9.n3HkfMy_J2r-aTlwOvp6t6wzvVLSLl28gSKqXH5ShLA")
     } catch (error) {
       console.error(error)
     }
@@ -204,7 +204,7 @@ describe('Testando as rotas de registro', () => {
           "password": "123456789",
           "role": "seller"
         })
-        .set('authorization', "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IkRlbGl2ZXJ5IEFwcCBBZG1pbiIsImVtYWlsIjoiYWRtQGRlbGl2ZXJ5YXBwLmNvbSIsInJvbGUiOiJhZG1pbmlzdHJhdG9yIiwiaWF0IjoxNjc1NDM1MDYzLCJleHAiOjE2NzYwMzk4NjN9.Fc4vr114woz9vylJgcAT0pnxK_tsh8ppJ_cVT4DhDIo")
+        .set('authorization', "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IkRlbGl2ZXJ5IEFwcCBBZG1pbiIsImVtYWlsIjoiYWRtQGRlbGl2ZXJ5YXBwLmNvbSIsInJvbGUiOiJhZG1pbmlzdHJhdG9yIiwiaWF0IjoxNjgyNDQzNjQ0LCJleHAiOjI1NDYzNTcyNDR9.RDqnxIIOV4ugaLEKwdW9If2XJn-yKpsKugUelK4ulP8")
     } catch (error) {
       console.error(error)
     }

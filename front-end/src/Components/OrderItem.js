@@ -34,6 +34,7 @@ export default function OrdersItem() {
             <button
               type="button"
               onClick={ () => history.push(`/customer/orders/${element.id}`) }
+              className="order-button"
             >
               <div>
                 <span

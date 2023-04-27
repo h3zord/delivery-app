@@ -50,7 +50,7 @@ function Login() {
 
       const userInfo = getUserInfo();
 
-      if (userInfo.token) {
+      if (userInfo) {
         if (userInfo.role === 'customer') {
           navigate.push('/customer/products');
         }
@@ -79,6 +79,7 @@ function Login() {
             <input
               type="email"
               name="email"
+              id="email"
               data-testid="common_login__input-email"
               onChange={ handleChange }
             />
@@ -88,6 +89,7 @@ function Login() {
             <input
               type="password"
               name="password"
+              id="password"
               data-testid="common_login__input-password"
               onChange={ handleChange }
             />
