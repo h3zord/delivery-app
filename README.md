@@ -24,7 +24,7 @@ Este projeto full stack foi desenvolvido em um grupo de 5 pessoas, e foi o maior
 
 No íncio do projeto, de modo conjunto realizamos as configurações mais básicas, como: conexão com banco de dados, construção de tabelas, (Models, Migrations e Seeders) e a organização de pastas seguindo o modelo MSC. Fui responsável pela escrita de vários endpoints e rotas, passando por todas as camadas até a chamada no banco de dados, desenvolvimento de regras de negócio e autenticação e validações das informações fornecidas através do front end.
 No front end, tive participação na criação de vários componentes, mais expecificamente na página de seleção e visualização de produtos, e toda a lógica que envolve a adição ou remoção das bebidas ao carrinho.
-Fui responsável também por escrever todos os testes, tanto na parte do back end, como na parte de front end.
+Fui responsável também por escrever todos os testes, tanto na parte do back end, como na parte de front end. Me considerei bastante participativo auxiliando os outros colegas, sempre dando sugestões e diferentes pontos de vista de como superar as dificuldades além de sempre oferecer ajuda quando julgava ser necessário, e os colegas todas as vezes retribuíram da mesma forma.
 
 ## Linguagens e ferramentas:
 - Docker
