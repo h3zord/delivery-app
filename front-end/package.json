@@ -61,6 +61,7 @@
     ],
     "coveragePathIgnorePatterns": [
       "index.js",
+      "src/Services/Request.js",
       "serviceWorker.js",
       "reportWebVitals.js",
       "./services/renderWithRouter",

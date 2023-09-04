@@ -30,7 +30,6 @@ function Login() {
         '/login',
         { email, password },
       );
-      console.log(userInfo);
       setToken(userInfo.token);
 
       saveInfoAndRedirect(userInfo);
@@ -70,9 +69,6 @@ function Login() {
 
   return (
     <div>
-      <div>
-        <img src="" alt="Logo do app" />
-      </div>
       <div>
         <form>
           <label htmlFor="email">

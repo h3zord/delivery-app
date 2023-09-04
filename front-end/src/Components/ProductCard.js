@@ -112,6 +112,7 @@ export default function ProductCard({ product }) {
   return (
     <div className="product-card" key={ product.id }>
       <img
+        width="80px"
         src={ product.urlImage }
         alt="product-logo"
         data-testid={ `customer_products__img-card-bg-image-${product.id}` }

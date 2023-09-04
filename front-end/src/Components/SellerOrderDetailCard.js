@@ -15,7 +15,6 @@ export default function SellerOrderDetailCard() {
     const fetchOrders = async () => {
       const order = await getProductSale(`/seller/orders/${id}`, { params: id });
       setOrderInfo(order);
-      console.log(order);
       setProducts(order.products);
       if (order.status === 'Preparando') {
         setPreparingDisabled(true);

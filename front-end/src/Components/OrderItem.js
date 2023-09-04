@@ -11,7 +11,6 @@ export default function OrdersItem() {
     const fetchOrders = async () => {
       const { id } = getUserInfo();
       const orders = await requestOrders('/customer/orders', { id });
-      console.log(orders);
       setOrderList(orders);
     };
     fetchOrders();
