@@ -3,7 +3,7 @@
 
 ## Objetivo
 
-O<strong>Delivery App</strong> é uma aplicação full stack, que tem como objetivo realizar o gerenciamento de um delivery de bebidas!
+O <strong>Delivery App</strong> é uma aplicação full stack, que tem como objetivo realizar o gerenciamento de um delivery de bebidas!
 É possível fazer login com três diferentes usuários (Admin, Seller e Customer), cada um atribuições e telas diferentes. Esse projeto foi desenvolvido durante meu período de estudante da Trybe, em um grupo de 5 pessoas. Ao todo foram 44 requisitos obrigatórios e opcionais, com aprovação em 100%.
 
 ## O que foi desenvolvido?
