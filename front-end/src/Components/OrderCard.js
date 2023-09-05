@@ -2,10 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { requestOrders } from '../Services/Request';
 import { getUserInfo } from '../Services/Storage';
-// import { AppContext } from '../Context/orderProvider';
 
 export default function OrdersCard() {
-  // const { order, setOrder } = useContext(AppContext);
   const [ordersList, setOrdersList] = useState([]);
 
   useEffect(() => {
@@ -21,11 +19,6 @@ export default function OrdersCard() {
     fetchOrders();
   }, []);
 
-  // const handleClick = (orderInfo) => {
-  //   saveOrder(orderInfo);
-  //   setOrder(orderInfo);
-  // };
-
   return (
     <section className="orders-list">
       {
@@ -33,7 +26,6 @@ export default function OrdersCard() {
           <Link
             to={ `/seller/orders/${sales.id}` }
             key={ sales.id }
-            // onClick={ handleClick }
             className="test"
           >
             <div className="order-card">

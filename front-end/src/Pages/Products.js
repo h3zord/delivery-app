@@ -4,8 +4,6 @@ import Header from '../Components/Header';
 import ProductCard from '../Components/ProductCard';
 import { AppContext } from '../Context/provider';
 import { requestProducts } from '../Services/Request';
-// import { requestToken, setToken } from '../Services/Request';
-// import { getUserInfo } from '../Services/Storage';
 
 const calculateTotalPrice = (cart) => {
   let totalPrice = 0;
@@ -14,15 +12,6 @@ const calculateTotalPrice = (cart) => {
 };
 
 export default function Products() {
-  // useEffect(() => {
-  //   const checkToken = async () => {
-  //     const { token } = getUserInfo();
-  //     setToken(token);
-  //     await requestToken();
-  //   };
-  //   checkToken();
-  // }, []);
-
   const [productsList, setProductsList] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const history = useHistory();
